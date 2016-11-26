@@ -1,0 +1,99 @@
+<ng-include src="templates.header" ng-init="search.start ();"></ng-include>
+<div class="container" style="margin-bottom: 2em!important;">
+	<div class="row">
+		<div class="col-sm-12 col-md-6" >
+			<div class="input-field">
+	        	<input name="search" type="text" class="validate" ng-model="search.text" required="required">
+	        	<label for="search">Search for a Location:</label>
+	        </div>
+			<table class="table">
+				<tr ng-repeat="i in [1, 2, 3, 4]">
+					<td width="50">
+						<img src="assets/images/profile-blank.png" width="50">	
+					</td>
+					<td>
+						<h6 style="margin-top: 35%!important;" ng-click="actions.location.click(fashion_house)">Nigeria</h6>
+					</td>
+					<td>
+						<h6 style="margin-top: 40%!important;">Lagos</h6>
+					</td>
+					<td>
+						<div style="margin-top: 8%!important;" class="text-right">Eti Osa Local Government Area</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<form name="form">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>
+                            Location<br>
+                            <small class="text-red font-12 bold" ng-show="error.location.available" 
+                            	ng-bind="error.location.message"></small>
+                        </h5>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="country" type="text" class="validate"
+					        		ng-model="data.location.country" required="required" />
+					        	<label for="country">
+					        		Enter Country Name: &nbsp;
+					        		<span ng-show="(form.country.$touched || form.$submitted) && 
+					        			(form.country.$error.required || form.country.$error.length < 10)">
+					        			<small ng-show="form.country.$error.required" class="text-danger">
+					        				Enter the country name!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="name" type="text" class="validate"
+					        		ng-model="data.location.name" required="required" />
+					        	<label for="name">
+					        		Enter Location Name: &nbsp;
+					        		<span ng-show="(form.name.$touched || form.$submitted) && 
+					        			(form.name.$error.required || form.name.$error.length < 10)">
+					        			<small ng-show="form.name.$error.required" class="text-danger">
+					        				Enter the location name!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="is_state" type="radio" class="validate"
+					        		ng-model="data.location.is_state" required="required" />
+					        	<label for="is_state">
+					        		Is it a state?: &nbsp;
+					        	</label>
+					        </div>
+                        </div>
+
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit" 
+                    		ng-click="actions.location.commit(form);">
+                    		commit
+                    	</button>
+                    	<button class="btn btn-danger btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.location.drop();">
+                    		drop /delete
+                    	</button>
+                    	<button class="btn btn-info btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.location.clear();">
+                    		clear
+                    	</button>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

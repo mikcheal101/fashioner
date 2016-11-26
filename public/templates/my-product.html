@@ -1,0 +1,114 @@
+<ng-include src="templates.header" ng-init="myProduct.start ();"></ng-include>
+<div class="container" style="margin-bottom: 3em;">
+	<div class="row">
+		<div class="col-xs-12">
+			<span class="pull-md-right pull-lg-right">
+				<button class="btn white waves-effect waves-ripple">
+					Select Category: &nbsp; <small class="text-success">sample categories</small>
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Sub Category: 
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Size: 
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Sex: 
+				</button>
+			</span>
+			
+		</div>
+		<div class="col-xs-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-xs-12 text-center" style="margin-bottom: 20px;">
+				<img src="assets/images/profile-blank.png" class="z-depth-1" 
+				style="margin-bottom: 35px!important; width: 83%;" />
+				<div>
+					Click Image to change
+				</div>
+				<div class="input-field col-xs-12 no-padding">
+		        	<input name="type" type="text" class="validate"
+		        		ng-model="product.data.image.type" required="required">
+		        	<label for="type">
+		        		Select Image Type: &nbsp;
+		        	</label>
+		        </div>
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+				<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="i in [1, 2, 3, 4, 5]">
+					<img src="assets/images/profile-blank.png" class="z-depth-1 " 
+					style="margin-bottom: 2em!important; width: 100%;" />
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="col-md-6">
+			<form name="form" novalidate="novalidate">
+				<div class="input-field col-xs-12 no-padding">
+		        	<input name="name" type="text" class="validate"
+		        		ng-model="product.data.name" required="required">
+		        	<label for="name">
+		        		Enter Name: &nbsp;
+		        		<span ng-show="(form.name.$touched || form.$submitted) && form.name.$error.required">
+		        			<small ng-show="form.name.$error.required" class="text-danger">Enter a product name!</small>
+		        		</span>
+		        	</label>
+		        </div>
+
+		        <div class="input-field col-xs-12 no-padding">
+		        	<textarea name="brief" class="materialize-textarea"
+		        		ng-model="product.data.brief" required="required"></textarea>
+		        	<label for="brief">
+		        		Enter Product Brief: &nbsp;
+		        		<span ng-show="(form.brief.$touched || form.$submitted) && 
+		        			(form.brief.$error.required || form.brief.$error.length > 20)">
+		        			<small ng-show="form.username.$error.required" class="text-danger">Enter a product brief!</small>
+		        			<small ng-show="form.username.$error.length > 20" class="text-danger">Enter a product brief with maximum length (20)</small>	
+		        		</span>
+		        	</label>
+		        </div>
+
+		        <div class="input-field col-xs-12 no-padding">
+		        	<input name="keywords" type="text" class="validate"
+		        		ng-model="product.data.keywords" required="required">
+		        	<label for="keywords">
+		        		Enter Keywords Associated to Product: &nbsp;
+		        		<span ng-show="(form.keywords.$touched || form.$submitted) && form.keywords.$error.required">
+		        			<small ng-show="form.keywords.$error.required" class="text-danger">Enter a keywords!</small>
+		        		</span>
+		        	</label>
+		        </div>
+
+		        <div class="input-field col-xs-12 no-padding">
+		        	<input name="price" type="text" class="validate"
+		        		ng-model="product.data.price" required="required">
+		        	<label for="price">
+		        		Enter Unit Price (Nigerian Naira): &nbsp;
+		        		<span ng-show="(form.price.$touched || form.$submitted) && form.price.$error.required">
+		        			<small ng-show="form.username.$error.required" class="text-danger">Enter a username!</small>
+		        		</span>
+		        	</label>
+		        </div>
+
+		        <div class="col-xs-12 no-padding text-center" style="margin-top: 20px;">
+		        	<hr>
+		        	<div class="btn waves-effect waves-ripple waves-red">
+		        		Delete Product
+		        	</div>
+		        	<div class="btn waves-effect waves-ripple waves-green">
+		        		Save Changes
+		        	</div>
+		        </div>
+		    </form>
+		</div>
+	</div>
+</div>

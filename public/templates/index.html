@@ -1,0 +1,57 @@
+<ng-include src="templates.header" ng-init="myProduct.start ();"></ng-include>
+<div class="container" style="margin-bottom: 3em;">
+	<div class="row">
+		<div class="col-xs-12">
+			<span class="pull-md-right pull-lg-right">
+				<button class="btn white waves-effect waves-ripple">
+					Select Category: &nbsp; <small class="text-success">sample categories</small>
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Sub Category: 
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Size: 
+				</button>
+
+				<button class="btn white waves-effect waves-ripple waves-green">
+					Select Sex: 
+				</button>
+			</span>
+		</div>
+
+		<div class="input-field col-xs-12">
+        	<input name="search" type="search-md" class="validate" ng-model="search.text" >
+        	<label for="search">
+        		Enter Product name, eg Buba: &nbsp;
+        	</label>
+        </div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="i in [1, 2, 34, 5]" style="margin-bottom: 15px">
+			<div class="card" >
+				<div class="card-image">
+					<img src="assets/images/profile-blank.png" />		
+				</div>
+				<div class="card-content">
+					<div class="row">
+						<div class="col-xs-3">
+							<img src="assets/images/profile-blank.png" class="col-xs-10 no-padding"  />		
+						</div>
+						<div class="col-xs-9">
+							<h6>Product Name</h6>
+							<span>
+								by 
+								<span>Sample Company</span>
+							</span>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

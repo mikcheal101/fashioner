@@ -1,0 +1,70 @@
+<ng-include src="templates.header" ng-init="search.start ();"></ng-include>
+<div class="container" style="margin-bottom: 2em!important;">
+	<div class="row">
+		<div class="col-sm-12 col-md-6" >
+			<div class="input-field">
+	        	<input name="search" type="text" class="" ng-model="search.text">
+	        	<label for="search">Search for a category:</label>
+	        </div>
+			<table class="table">
+				<tr ng-repeat="i in [1, 2, 3, 4]">
+					<td>
+						<a class="btn-link" style="margin-top: 35%!important;" 
+							ng-click="actions.user_category.click(category)">
+							sample User category name
+						</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<form name="form" novalidate="novalidate">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>
+                            User Category<br>
+                            <small class="text-red font-12 bold" ng-show="error.user_category.available" 
+                            	ng-bind="error.user_category.message"></small>
+                        </h5>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="name" type="text" class="validate"
+					        		ng-model="data.user_category.name" required="required" readonly="readonly" />
+					        	<label for="name">
+					        		Enter name: &nbsp;
+					        		<span ng-show="(form.name.$touched || form.$submitted) && 
+					        			(form.name.$error.required || form.name.$error.length < 10)">
+					        			<small ng-show="form.name.$error.required" class="text-danger">
+					        				Enter name!
+					        			</small>
+					        			<small ng-show="form.name.$error.length < 10" class="text-danger">
+					        				Enter name with length greater than 10!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit" 
+                    		ng-click="actions.user_category.commit(form);">
+                    		commit
+                    	</button>
+                    	<button class="btn btn-danger btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.user_category.drop();">
+                    		drop /delete
+                    	</button>
+                    	<button class="btn btn-info btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.user_category.clear();">
+                    		clear
+                    	</button>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,147 @@
+<ng-include src="templates.header" ng-init="search.start ();"></ng-include>
+<div class="container" style="margin-bottom: 2em!important;">
+	<div class="row">
+		<div class="col-sm-12 col-md-6" >
+			<div class="input-field">
+	        	<input name="search" type="text" class="validate" ng-model="search.text" required="required">
+	        	<label for="search">Search for a person:</label>
+	        </div>
+			<table class="table">
+				<tr ng-repeat="i in [1, 2, 3, 4]">
+					<td>
+						<a class="btn-link" style="margin-top: 35%!important;" 
+							ng-click="actions.person.click(fashion_house)">
+							sample username
+						</a>
+					</td>
+					<td>
+						<a href="mailto:mail@mail.com" style="margin-top: 40%!important;">sample@email.com</a>
+					</td>
+					<td>
+						<a href="tel:+2349020484848" style="margin-top: 4%!important;">+2349020484848</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<form name="form" novalidate="novalidate">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>
+                            Person<br>
+                            <small class="text-red font-12 bold" ng-show="error.person.available" 
+                            	ng-bind="error.person.message"></small>
+                        </h5>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="username" type="text" class="validate"
+					        		ng-model="data.person.username" required="required" readonly="readonly" />
+					        	<label for="username">
+					        		Enter Username: &nbsp;
+					        		<span ng-show="(form.username.$touched || form.$submitted) && 
+					        			(form.username.$error.required || form.username.$error.length < 10)">
+					        			<small ng-show="form.username.$error.required" class="text-danger">
+					        				Enter username!
+					        			</small>
+					        			<small ng-show="form.username.$error.length < 10" class="text-danger">
+					        				Enter username with length greater than 10!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="email" type="email" class="validate"
+					        		ng-model="data.person.email" required="required" readonly="readonly" />
+					        	<label for="email">
+					        		Enter email: &nbsp;
+					        		<span ng-show="(form.email.$touched || form.$submitted) && 
+					        			((form.email.$error.required || form.email.$error.length < 10) || form.email.$error.email)">
+					        			<small ng-show="form.email.$error.required" class="text-danger">
+					        				Enter email!
+					        			</small>
+					        			<small ng-show="form.email.$error.length < 10" class="text-danger">
+					        				Enter email with length greater than 10!
+					        			</small>
+					        			<small ng-show="form.email.$error.email" class="text-danger">
+					        				Enter a valid email address!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+						<div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="tel" type="tel" class="validate"
+					        		ng-model="data.person.tel" required="required" readonly="readonly" />
+					        	<label for="tel">
+					        		Enter tel: &nbsp;
+					        		<span ng-show="(form.tel.$touched || form.$submitted) && 
+					        			(form.tel.$error.required || form.tel.$error.length < 10)">
+					        			<small ng-show="form.tel.$error.required" class="text-danger">
+					        				Enter a tel / mobile number!
+					        			</small>
+					        			<small ng-show="form.tel.$error.length < 10" class="text-danger">
+					        				Enter tel / mobile number with length greater than 10!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>                        
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="status" type="radio" class="validate"
+					        		ng-model="data.person.status" required="required" />
+					        	<label for="status">
+					        		Activate?: &nbsp;
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="status" type="radio" class="validate"
+					        		ng-model="data.person.status" required="required" />
+					        	<label for="status">
+					        		DeActivate?: &nbsp;
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="status" type="radio" class="validate"
+					        		ng-model="data.person.status" required="required" />
+					        	<label for="status">
+					        		Suspend?: &nbsp;
+					        	</label>
+					        </div>
+                        </div>
+
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit" 
+                    		ng-click="actions.person.commit(form);">
+                    		commit
+                    	</button>
+                    	<button class="btn btn-danger btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.person.drop();">
+                    		drop /delete
+                    	</button>
+                    	<button class="btn btn-info btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.person.clear();">
+                    		clear
+                    	</button>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

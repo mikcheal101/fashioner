@@ -1,0 +1,289 @@
+<ng-include src="templates.header"></ng-include>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<form name="form" novalidate="novalidate">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>
+                            <div class="text-info">
+                            	Sign Up as a <b class="text-underline">designer</b>
+                            </div>
+                        </h5>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="username" type="text" class="validate"
+					        		ng-model="registration.data._uname" required="required">
+					        	<label for="username" 
+					        		ng-class="{'active':registration.data._uname.length > 0}">
+					        		Enter Username: &nbsp; 
+					        		<span ng-show="(form.username.$touched || form.$submitted) && 
+					        			(form.username.$error.required || form.username.$error.length < 10)">
+					        			<small ng-show="form.username.$error.required" class="text-danger">Enter a username!</small>
+					        			<small ng-show="form.username.$error.length < 10" class="text-danger">Enter a username with minimum length (10)</small>	
+					        		</span>
+					        	</label>
+					        </div>
+
+					        <div class="input-field col-xs-12">
+					        	<input name="password" type="password" class="validate"
+					        		ng-model="registration.data._pwd" required="required">
+					        	<label for="password"
+					        		ng-class="{'active':(registration.data._pwd.length > 0)}">
+					        		Enter Password: &nbsp;
+					        		<span ng-show="(form.password.$touched || form.$submitted) && 
+					        			(form.password.$error.required || form.password.$error.length < 10)">
+					        			<small ng-show="form.password.$error.required" class="text-danger">Enter a password!</small>
+					        			<small ng-show="form.password.$error.length < 10" class="text-danger">Enter a password with minimum length (10)</small>	
+					        		</span>
+					        	</label>
+					        </div>
+
+					        <div class="input-field col-xs-12">
+					        	<input  name="repassword" type="password" class="validate"
+					        		ng-model="registration.data.repwd" required="required">
+					        	<label for="repassword"
+					        		ng-class="{active:(registration.data.repwd.length > 0)}">
+					        		Re enter Password: &nbsp;
+					        		<span ng-show="(form.repassword.$touched || form.$submitted) && 
+					        			(form.repassword.$error.required || form.repassword.$error.length < 10 || 
+					        			(form.password.$viewValue !== form.repassword.$viewValue))">
+					        			<small ng-show="form.password.$error.required" class="text-danger">Enter a password!</small>
+					        			<small ng-show="form.password.$error.length < 10" class="text-danger">
+					        				Enter a password with minimum length (10)
+					        			</small>	
+					        			<small ng-show="(form.password.$viewValue !== form.repassword.$viewValue)" 
+					        				class="text-danger">
+					        				'Password' and 'Re entered password' do not match! 
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+
+					        <div class="input-field col-xs-12">
+					        	<input name="sex" type="text" class="validate"
+					        		ng-model="registration.data._sex._name" required="required">
+					        	<label for="email"
+					        		ng-class="{active:(registration.data._sex._id != undefined)}">
+					        		Enter Gender / Sex: &nbsp;
+					        		<span ng-show="(form.sex.$touched || form.$submitted) && form.sex.$error.required">
+					        			<small ng-show="form.sex.$error.required" class="text-danger">
+					        				Tell us your gender!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+
+					        <div class="input-field col-xs-12">
+					        	<input name="email" type="email" class="validate"
+					        		ng-model="registration.data._email" required="required">
+					        	<label for="email"
+					        		ng-class="{active:(registration.data._email.length > 0)}">
+					        		Enter Email Address: &nbsp;
+					        		<span ng-show="(form.email.$touched || form.$submitted) && 
+					        			(form.email.$error.required || form.email.$error.email)">
+					        			<small ng-show="form.email.$error.required" class="text-danger">Enter an email address!</small>
+					        			<small ng-show="form.email.$error.email" class="text-danger">Enter a valid email address</small>	
+					        		</span>
+					        	</label>
+					        </div>
+
+					        <div class="input-field col-xs-12">
+					        	<input name="tel" type="tel" class="validate"
+					        		ng-model="registration.data._tel" required="required">
+					        	<label for="tel"
+					        		ng-class="{active:(registration.data._tel.length > 0)}">
+					        		Enter Tel / Mobile #: &nbsp;
+					        		<span ng-show="(form.tel.$touched || form.$submitted) && 
+					        			(form.tel.$error.required || form.tel.$error.length < 10)">
+					        			<small ng-show="form.tel.$error.required" class="text-danger">
+					        				Enter a Tel / Mobile #!
+					        			</small>
+					        			<small ng-show="form.tel.$error.length < 10" class="text-danger">
+					        				Enter a password with minimum length (10)
+					        			</small>	
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <br>
+                        <hr>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="name" type="text" class="validate"
+					        		ng-model="registration.data.fashion_house._name" required="required">
+					        	<label for="name"
+					        		ng-class="{active:(registration.data.fashion_house._name.length > 0)}">
+					        		Enter Name (Fashion House): &nbsp;
+					        		<span ng-show="(form.name.$touched || form.$submitted) && 
+					        			(form.name.$error.required)">
+					        			<small ng-show="form.name.$error.required" class="text-danger">
+					        				Enter a Fashion House Name!
+					        			</small>
+					        		</span>
+					        	</label>
+					        	<span class="text-info" ng-show="registration.data.fashion_house._name.length > 0">
+					        		{{registration.error.fashion_house.msgs[registration.error.fashion_house.index].exists}} 
+					        		<span ng-click="registration.actions.fashion_house();" 
+					        			class="btn-link" style="cursor: pointer;">
+					        			{{registration.error.fashion_house.msgs[registration.error.fashion_house.index].link}} 
+					        		</span>
+					        	</span>
+					        </div>
+                        </div>
+
+                        <span ng-show="registration.check.fashion_house">
+
+                        	<div class="row"  style="margin-top: 30px; margin-bottom: 10px;">
+	                        	<div class="col-xs-12 input-field text-center">
+						        	<img src="assets/images/profile-blank.png" width="150" 
+						        		ng-show="registration.data.fashion_house._logo" />
+						        	<img ngf-thumbnail="registration.files.logo" 
+						        		ng-show="registration.files.logo" />
+						        	<br/>
+						        	<div class="btn waves-effect waves-ripple waves-blue"
+						        		ngf-select="registration.actions.selectLogo($file);"
+						        		accept="image/*" 
+						        		ngf-max-total-size="10MB"
+						        		ngf-resize="{width:200, height:200, quality:0.9}"
+						        		ngf-model="registration.files.logo">
+						        		
+						        		click here to select <u>{{registration.data.fashion_house._name + "'s"}}</u> logo
+						        	</div>
+						        </div>
+	                        </div>
+
+	                        <div class="row"  style="margin-top: 20px;">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="_registered" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house._registered">
+						        	<label for="_registered" 
+						        		ng-class="{active:(registration.data.fashion_house._registered != undefined)}">
+						        		Is 
+						        		<span ng-bind="registration.data.fashion_house._name"></span>
+						        		Registered As a Company with C.A.C.?:
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row"  style="margin-top: 10px;"
+	                        	ng-show="registration.data.fashion_house._registered">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="_registered" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house.rc_number">
+						        	<label for="_registered" 
+						        		ng-class="{active:(registration.data.fashion_house.rc_number.length > 0)}">
+						        		{{registration.data.fashion_house._name+"'s"}} RC Number:
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="pobox" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house.pobox" 
+						        		ng-required="registration.data.fashion_house._name.length > 0">
+						        	<label for="pobox"
+						        		ng-class="{active:(registration.data.fashion_house.pobox.length > 0)}">
+						        		Enter P.O.Box (Fashion House): &nbsp;
+						        		<span ng-show="(form.pobox.$touched || form.$submitted) && 
+						        			(form.pobox.$error.required || form.pobox.$error.length < 10)">
+						        			<small ng-show="form.pobox.$error.required" class="text-danger">
+						        				Tell us your fashion house P.O.Box!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<textarea name="address" class="materialize-textarea"
+						        		ng-model="registration.data.fashion_house.address"
+						        		ng-required="registration.data.fashion_house._name.length > 0">
+						        	</textarea>
+						        	<label for="address"
+						        		ng-class="{active:(registration.data.fashion_house.address.length > 0)}">
+						        		Enter Address (Fashion House): &nbsp;
+						        		<span ng-show="(form.address.$touched || form.$submitted) && 
+						        			(form.address.$error.required)">
+						        			<small ng-show="form.address.$error.required" class="text-danger">
+						        				Tell us your fashion house's address!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="state" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house.state.name" 
+						        		ng-required="registration.data.fashion_house._name.length > 0">
+						        	<label for="state"
+						        		ng-class="{active:(registration.data.fashion_house.state._id != undefined)}">
+						        		Enter State (Fashion House): &nbsp;
+						        		<span ng-show="(form.state.$touched || form.$submitted) && 
+						        			(form.state.$error.required)">
+						        			<small ng-show="form.state.$error.required" class="text-danger">
+						        				Tell us the state your fashion house is located at!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="_location" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house._location.name"
+						        		ng-required="registration.data.fashion_house._name.length > 0">
+						        	<label for="_location"
+						        		ng-class="{active:(registration.data.fashion_house._location._id != undefined)}">
+						        		Enter Location (Fashion House): &nbsp;
+						        		<span ng-show="(form._location.$touched || form.$submitted) && 
+						        			(form._location.$error.required)">
+						        			<small ng-show="form._location.$error.required" class="text-danger">
+						        				Tell us where (L.G.A.) your fashion house is located at!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="contact_person" type="text" class="validate"
+						        		ng-model="registration.data.fashion_house.contact_person" required="required">
+						        	<label for="contact_person"
+						        		ng-class="{active:(registration.data.fashion_house.contact_person.length > 0)}">
+						        		Enter Contact Person's Fullname (Fashion House): &nbsp;
+						        		<span ng-show="(form.contact_person.$touched || form.$submitted) && 
+						        			(form.username.$error.required)">
+						        			<small ng-show="form.username.$error.required" class="text-danger">
+						        				Tell us the fullname of the contact person at your fashion house!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+                        </span>
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit" 
+                    		ng-click="registration.actions.submit(form);">
+                    		register
+                    	</button>
+                    	<span>Already Own an account? <a href="/sign-in">sign in here</a></span>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

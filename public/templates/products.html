@@ -1,0 +1,229 @@
+<ng-include src="templates.header" ng-init="search.start ();"></ng-include>
+<div class="container" style="margin-bottom: 2em!important;">
+	<div class="row">
+		<div class="col-sm-12 col-md-6" >
+			<div class="input-field">
+	        	<input name="search" type="text" class="validate" ng-model="search.text" required="required">
+	        	<label for="search">Search for a product:</label>
+	        </div>
+			<table class="table">
+				<tr ng-repeat="i in [1, 2, 3, 4]">
+					<td width="75px">
+						<div class="z-depth-1" style="
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: cover;
+							background-image: url('assets/images/profile-blank.png');
+							height: 75px;
+							width: 75px;
+						"></div>
+					</td>
+					<td>
+						<a href="mailto:mail@mail.com" class="btn-link">
+							<h6 style="margin-top: 0!important; padding-top: 0!important; margin-bottom: 15px; 
+								color: #999!important;" class="text-elipse">
+								Sample Product Name from Lorem Ipsum
+							</h6>
+						</a>
+						<div>
+							<h6>Magic House of Tarra</h6>
+						</div>
+						<div>
+							<span>
+								Samuel Akpogban
+							</span>
+						</div>
+						<div class="row text-info" style="margin-top: 10px;">
+							<small class="col-xs-4">{{"21 LIKES"}}</small>
+							<small class="col-xs-4">{{"330k VIEWS"}}</small>
+							<small class="col-xs-4">{{"21 PHOTOS"}}</small>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<form name="form" novalidate="novalidate">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>
+                            Product<br>
+                            <small class="text-red font-12 bold" ng-show="error.product.available" 
+                            	ng-bind="error.product.message"></small>
+                        </h5>
+                        <div class="row">
+                        	<div class="col-sm-12 text-center" style="padding-bottom:15px;">
+                        		click on the image below to change it.
+                        	</div>
+                        	<div class="z-depth-1 col-md-4 col-md-offset-4 col-sm-12" style="
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: cover;
+								background-image: url('assets/images/profile-blank.png');
+								height: 200px;
+							"></div>	
+                        </div>
+                        
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="name" type="text" class="validate"
+					        		ng-model="data.product.name" required="required" />
+					        	<label for="name">
+					        		Enter Name: &nbsp;
+					        		<span ng-show="(form.name.$touched || form.$submitted) && 
+					        			(form.name.$error.required || form.name.$error.length < 10)">
+					        			<small ng-show="form.name.$error.required" class="text-danger">
+					        				Enter name!
+					        			</small>
+					        			<small ng-show="form.name.$error.length < 10" class="text-danger">
+					        				Enter name with length greater than 10!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="fashion_house" type="text" class="validate"
+					        		ng-model="data.product.owner.fashion_house" required="required" />
+					        	<label for="fashion_house">
+					        		Enter Fashion House: &nbsp;
+					        		<span ng-show="(form.fashion_house.$touched || form.$submitted) && 
+					        			(form.fashion_house.$error.required)">
+					        			<small ng-show="form.fashion_house.$error.required" class="text-danger">
+					        				Select Fashion House!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+						<div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="designer" type="text" class="validate"
+					        		ng-model="data.product.owner.designer" required="required" />
+					        	<label for="designer">
+					        		Enter Fashion House / Product Designer: &nbsp;
+					        		<span ng-show="(form.designer.$touched || form.$submitted) && 
+					        			(form.designer.$error.required)">
+					        			<small ng-show="form.designer.$error.required" class="text-danger">
+					        				Select Fashion House / Product Designer!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<textarea name="brief" rows="3" class="materialize-textarea"
+					        		ng-model="data.product.brief" required="required"></textarea>
+					        	<label for="brief">
+					        		Enter Product Brief: &nbsp;
+					        		<span ng-show="(form.brief.$touched || form.$submitted) && 
+					        			(form.brief.$error.required)">
+					        			<small ng-show="form.brief.$error.required" class="text-danger">
+					        				Enter Product Brief!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="keywords" type="text" class="validate"
+					        		ng-model="data.product.keywords" />
+					        	<label for="keywords">
+					        		Enter Product Keywords: &nbsp;
+					        	</label>
+					        </div>
+                        </div>
+
+                        <hr>
+                        
+                        <div class="row">
+                        	<div class="btn btn-sm pull-right">add image(s)</div>
+                        	<div class="clearfix"></div>
+                        </div>
+
+                        <hr>
+                        {{data.product.sizes}}
+                        <div ng-repeat="size_ in data.product.sizes">
+                        	<div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="size" type="text" class="validate" ng-model="data.product._size" />
+						        	<label for="size">
+						        		Product size: &nbsp;
+						        		<span ng-show="(form.size.$touched || form.$submitted) && 
+						        			(form.size.$error.required)">
+						        			<small ng-show="form.size.$error.required" class="text-danger">
+						        				Select Product Size!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="sex" type="text" class="validate" ng-model="data.product.sex" />
+						        	<label for="sex">
+						        		Sex Product is meant for: &nbsp;
+						        		<span ng-show="(form.sex.$touched || form.$submitted) && 
+						        			(form.sex.$error.required)">
+						        			<small ng-show="form.sex.$error.required" class="text-danger">
+						        				Select Sex Product is meant for!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+	                        </div>
+
+	                        <div class="row">
+	                        	<div class="input-field col-xs-12">
+						        	<input name="price" type="text" class="validate" ng-model="data.product.price" />
+						        	<label for="price">
+						        		Unit price: &nbsp;
+						        		<span ng-show="(form.price.$touched || form.$submitted) && 
+						        			(form.price.$error.required)">
+						        			<small ng-show="form.brief.$error.required" class="text-danger">
+						        				Enter Product Brief!
+						        			</small>
+						        		</span>
+						        	</label>
+						        </div>
+						        <div class="btn btn-sm btn-danger pull-right">
+						        	<i class="glyphicon glyphicon-trash"></i>
+						        </div>
+	                        </div>
+                        </div>
+                        
+                        <div class="row">
+                        	<div class="btn btn-sm pull-right">add another size</div>
+                        	<div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit" 
+                    		ng-click="actions.product.commit(form);">
+                    		commit
+                    	</button>
+                    	<button class="btn btn-danger btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.product.drop();">
+                    		drop /delete
+                    	</button>
+                    	<button class="btn btn-info btn-md waves-effect waves-light" type="reset"
+                    		ng-click="actions.product.clear();">
+                    		clear
+                    	</button>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

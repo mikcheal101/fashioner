@@ -1,0 +1,76 @@
+<ng-include src="templates.header" ng-init="country.actions.init();"></ng-include>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-6">
+			<div class="input-field">
+	        	<input name="search" type="text" class="validate" ng-model="search.text" required="required">
+	        	<label for="search">Enter Country:</label>
+	        </div>
+			<table class="table">
+				<tr>
+					<td>
+						<span ng-click="country.actions.select(param)" 
+							class="text-left btn-link hand waves-effect waves-light">
+							Country Name
+						</span>
+					</td>
+					<td width="16%">
+						<span class="text-right">UK</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<form name="form" novalidate="novalidate">
+				<div class="card hoverable">
+                    <div class="card-content">
+                        <h5>Country</h5>
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="name" type="text" class="validate"
+					        		ng-model="country.data._name" required="required" />
+					        	<label for="name"
+					        		ng-class="{active: country.data._name > 0}">
+					        		Enter Country Name: &nbsp;
+					        		<span ng-show="(form.name.$touched || form.$submitted) && form.name.$error.required">
+					        			<small ng-show="form.name.$error.required" class="text-danger">
+					        				Enter a country name!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+
+                        <div class="row">
+                        	<div class="input-field col-xs-12">
+					        	<input name="abbrv" type="text" class="validate"
+					        		ng-model="country.data._abbrv" required="required" />
+					        	<label for="abbrv"
+					        		ng-class="{active: country.data._abbrv > 0}">
+					        		Enter Country Abbreviation: &nbsp;
+					        		<span ng-show="(form.abbrv.$touched || form.$submitted) && form.name.$error.required">
+					        			<small ng-show="form.abbrv.$error.required" class="text-danger">
+					        				Enter a country abbreviation!
+					        			</small>
+					        		</span>
+					        	</label>
+					        </div>
+                        </div>
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                    	<button class="btn btn-default btn-md waves-effect waves-light" type="submit"
+                    		ng-click="country.actions.commit(form);">
+                    		commit
+                    	</button>
+                    	<button class="btn btn-danger btn-md waves-effect waves-light" type="reset"
+                    		ng-click="country.actions.drop();" ng-show="country.data._id != undefined">
+                    		drop /delete
+                    	</button>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

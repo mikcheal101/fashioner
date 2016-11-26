@@ -1,0 +1,42 @@
+{
+  "name": "needles.com",
+  "version": "2.0.0",
+  "description": "web app to help discover amazing fashionable products in Nigeria",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Hirekaan Micheal Hemen",
+  "license": "ISC",
+  "engines": {
+    "node": "^6.5.0",
+    "npm": "^3.10.3"
+  },
+  "keywords": [
+    "shopping",
+    "fashion",
+    "Web Application"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-loading-bar": "^0.9.0",
+    "autoloader": "^2.1.0",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "excel-parser": "^0.2.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "fs": "0.0.1-security",
+    "keen-tracking": "^1.0.3",
+    "method-override": "^2.0.2",
+    "multer": "^1.2.0",
+    "pg-promise": "^5.3.4",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.5.0",
+    "xls-to-json-lc": "^0.3.3",
+    "xlsx-to-json-lc": "^0.2.5"
+  }
+}

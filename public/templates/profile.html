@@ -1,0 +1,211 @@
+<ng-include src="templates.header" ng-init="search.start ();"></ng-include>
+<div class="container" style="padding-bottom: 50px;">
+	 <div class="row">
+	 	<div class="col-xs-12">
+		 	
+		 	<div class="row" >
+		 		<div class="col-xs-12 col-md-4 text-center">
+			 		<div class="z-depth-1" 
+			 			style="
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: cover;
+							background-image: url('assets/images/profile-blank.png');
+							height: 200px;
+							width: 200px;
+						">
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-8 pull-right" style="padding: 0">
+					<div class="input-field col-xs-12">
+			        	<input name="tag" type="text" class="validate"
+			        		ng-model="data.profile.tag" required="required" />
+			        	<label for="tel">
+			        		Enter Your Tag text: &nbsp;
+			        		<span ng-show="(form.tag.$touched || form.$submitted) && 
+			        			(form.tag.$error.required || form.tag.$error.length < 10)">
+			        			<small ng-show="form.tag.$error.required" class="text-danger">
+			        				Tell us your welcome message!
+			        			</small>
+			        			<small ng-show="form.tag.$error.length < 10" class="text-danger">
+			        				Enter a welcome message with length greater than 10!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12">
+			        	<textarea name="about" rows="4" class="materialize-textarea"
+			        		ng-model="data.profile.about" required="required"></textarea>
+			        	<label for="about">
+			        		Enter text about yourself: &nbsp;
+			        		<span ng-show="(form.tel.$touched || form.$submitted) && 
+			        			(form.tel.$error.required || form.tel.$error.length < 10)">
+			        			<small ng-show="form.tel.$error.required" class="text-danger">
+			        				Tell us about you!
+			        			</small>
+			        			<small ng-show="form.tel.$error.length < 10" class="text-danger">
+			        				Enter an about you text with length greater than 10!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+				</div>
+		 	</div>
+
+		 	<br/>
+		 	<form name="form" novalidate="novalidate">
+			 	<hr>
+			 	<div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+		        	<div class="input-field col-xs-12 col-md-6">
+			        	<input name="username" type="text" class="validate"
+			        		ng-model="data.profile.username" required="required" />
+			        	<label for="username">
+			        		Enter Your Username: &nbsp;
+			        		<span ng-show="(form.username.$touched || form.$submitted) && 
+			        			(form.username.$error.required || form.username.$error.length < 10)">
+			        			<small ng-show="form.username.$error.required" class="text-danger">
+			        				Tell us your username!
+			        			</small>
+			        			<small ng-show="form.username.$error.length < 10" class="text-danger">
+			        				Enter username with length greater than 10!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="password" type="password" class="validate"
+			        		ng-model="data.profile.password" required="required" />
+			        	<label for="password">
+			        		Enter Password: &nbsp;
+			        		<span ng-show="(form.password.$touched || form.$submitted) && 
+			        			(form.password.$error.required || form.password.$error.length < 10)">
+			        			<small ng-show="form.password.$error.required" class="text-danger">
+			        				Enter your secret key / password!
+			        			</small>
+			        			<small ng-show="form.password.$error.length < 10" class="text-danger">
+			        				Enter a password with length greater than 10!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="email" type="text" class="validate"
+			        		ng-model="data.profile.email" required="required" />
+			        	<label for="email">
+			        		Enter Your email Address: &nbsp;
+			        		<span ng-show="(form.email.$touched || form.$submitted) && 
+			        			((form.email.$error.required || form.email.$error.length < 10) || (form.email.$error.email))">
+			        			<small ng-show="form.email.$error.required" class="text-danger">
+			        				Tell us your email Address!
+			        			</small>
+			        			<small ng-show="form.email	.$error.length < 10" class="text-danger">
+			        				Enter an email address with length greater than 10!
+			        			</small>
+			        			<small ng-show="form.email.$error.email && form.$submitted">
+			        				Please, enter a valid email address
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="tel" type="text" class="validate"
+			        		ng-model="data.profile.tel" required="required" />
+			        	<label for="tel">
+			        		Enter Your Tel / Mobile Number: &nbsp;
+			        		<span ng-show="(form.tel.$touched || form.$submitted) && 
+			        			(form.tel.$error.required || form.tel.$error.length < 10)">
+			        			<small ng-show="form.tel.$error.required" class="text-danger">
+			        				Tell us your Tel / Mobile Number!
+			        			</small>
+			        			<small ng-show="form.tel.$error.length < 10" class="text-danger">
+			        				Enter a tel / mobile number with length greater than 10!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="sex" type="text" class="validate"
+			        		ng-model="data.profile.sex" required="required" />
+			        	<label for="sex">
+			        		Enter Your sex: &nbsp;
+			        		<span ng-show="(form.sex.$touched || form.$submitted) && form.sex.$error.required">
+			        			<small ng-show="form.sex.$error.required" class="text-danger">
+			        				Tell us your sex!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+	            </div>
+
+	            <div style="position: fixed; bottom: 2em; right: 3em;">
+	            	<a href="/my-products" class="btn btn-info btn-floating material-icons btn-large">
+		            	<i class="fa fa-gift"></i>
+		            </a>	
+		            <div class="text-info">my products</div>
+	            </div>
+	            
+	            
+	            <br/><hr>
+
+	            <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+		            <div class="input-field col-xs-12 col-md-6">
+			        	<input name="fname" type="text" class="validate"
+			        		ng-model="data.profile.firstname" required="required" />
+			        	<label for="fname">
+			        		Enter Your First Name: &nbsp;
+			        		<span ng-show="(form.fname.$touched || form.$submitted) && form.fname.$error.required">
+			        			<small ng-show="form.fname.$error.required" class="text-danger">
+			        				Tell us your First Name!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="mname" type="text" class="validate"
+			        		ng-model="data.profile.middlename" />
+			        	<label for="mname">
+			        		Enter Your Middle Name: &nbsp;
+			        	</label>
+			        </div>
+
+			        <div class="input-field col-xs-12 col-md-6">
+			        	<input name="lname" type="text" class="validate"
+			        		ng-model="data.profile.lastname" required="required" />
+			        	<label for="lname">
+			        		Enter Your Last Name: &nbsp;
+			        		<span ng-show="(form.lname.$touched || form.$submitted) && form.lname.$error.required">
+			        			<small ng-show="form.lname.$error.required" class="text-danger">
+			        				Tell us your Last Name!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+		        </div>
+
+		        <br/><hr>
+
+	            <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+		            <div class="input-field col-xs-12 col-md-6">
+			        	<input name="fashion_house" type="text" class="validate"
+			        		ng-model="data.profile.fashion_house" required="required" />
+			        	<label for="fashion_house">
+			        		Enter Your Fashion House's Name: &nbsp;
+			        		<span ng-show="(form.fashion_house.$touched || form.$submitted) && form.fashion_house.$error.required">
+			        			<small ng-show="form.fashion_house.$error.required" class="text-danger">
+			        				Tell us your Fashion House!
+			        			</small>
+			        		</span>
+			        	</label>
+			        </div>
+		        </div>
+		 	</form>
+		</div>
+	 </div>
+</div>
